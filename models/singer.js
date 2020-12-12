@@ -4,6 +4,7 @@ const singerSchema = mongoose.Schema({
   singerId: String,
   singerName: String,
   singerDescription: String,
+  singerImg: String,
 }, {collection: 'Singer'})
 
 const singer = mongoose.model('Singer', singerSchema)
