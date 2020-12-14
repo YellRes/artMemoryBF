@@ -36,10 +36,10 @@ const deleteSinger = async  (ctx, next) => {
 // 1. 名字
 // 不传即为获取全部
 const getSinger = async (ctx, next) => {
-  const {singerName} = ctx.request.body.singerName || ''
-  console.log(ctx.request.body);
+  const singerName = ctx.request.body.singerName || ''
+
   let result = null
-  if (singerName !== '') {
+  if (singerName ) {
     result = await singer.find({singerName}) 
   } else {
     result = await singer.find()
