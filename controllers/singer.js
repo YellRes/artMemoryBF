@@ -28,6 +28,7 @@ const deleteSinger = async  (ctx, next) => {
   }
 
   next()
+
 }
 
 
