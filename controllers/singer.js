@@ -36,14 +36,16 @@ const deleteSinger = async  (ctx, next) => {
 // 1. 名字
 // 不传即为获取全部
 const getSinger = async (ctx, next) => {
-  const singerName = ctx.request.body.singerName || ''
+  const {singerName, singerId} = ctx.request.body || ''
+
 
   let result = null
-  if (singerName ) {
-    result = await singer.find({singerName}) 
+  
+  if (singerId) {
+    result = await singer.find({_id: singerId})
   } else {
     result = await singer.find()
-  } 
+  }
 
   if (result) {
     info(ctx, '1000', '操作成功', {
