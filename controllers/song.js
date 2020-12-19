@@ -25,10 +25,17 @@ const addSong = async (ctx, next) => {
 }
 
 // 查找歌曲
+// songName 来获取
+// songId 来获取
 const getSong = async (ctx, next) => {
     const {songId} = ctx.request.body
 
-    let result = await song.find({id: songId})
+    let result = await song.find({
+        "$or": [
+            {"_id": songId},
+            {"songName": {"$in": [songName]}},
+        ]
+    })
     let code = result ? '1000' : '1001'
 
     info(ctx, code, '查询成功', {

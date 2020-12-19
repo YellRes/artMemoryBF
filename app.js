@@ -3,6 +3,7 @@ import koaBody from 'koa-body'
 import start from './models/db'
 import singer from './routes/singer'
 import song from './routes/song'
+import sentence from './routes/sentence'
 
 const app = new Koa()
 
@@ -21,6 +22,7 @@ app.use(async (ctx, next)=> {
 app.use(koaBody({multipart: true}))
 app.use(singer.routes())
 app.use(song.routes())
+app.use(sentence.routes())
 
 app.on('error', (err, ctx) => {
   console.log('server error', err)

@@ -35,14 +35,22 @@ const deleteSinger = async  (ctx, next) => {
 // 获取singer
 // 1. 名字
 // 不传即为获取全部
+// singerId 来获取
+// singerName 来获取
 const getSinger = async (ctx, next) => {
   const {singerName, singerId} = ctx.request.body || ''
 
-
   let result = null
   
-  if (singerId) {
-    result = await singer.find({_id: singerId})
+  if (singerId || singerName) {
+    result = await singer.find(
+      {"$or": 
+        [ 
+          {"_id": singerId}, 
+          {"singerName": {"$in": [singerName]}}
+        ]
+      }
+    )
   } else {
     result = await singer.find()
   }
