@@ -33,7 +33,7 @@ const isCanAddSentence = ({singerId = '', songId = ''}) => {
 
 // 2
 // 2-1 根据 sentenceId, songId, singerId, sentenceContent, songName, singerName 查询
-const getSentence = (ctx, next) => {
+const getSentence = async (ctx, next) => {
   const data = ctx.request.body
   const {
     sentenceId, songId, singerId,
@@ -57,7 +57,7 @@ const getSentence = (ctx, next) => {
 
 
 // 3 删除
-const deleteSentence = (ctx, next) => {
+const deleteSentence = async (ctx, next) => {
   const data = ctx.request.body
   const {sentenceId} = data
 

@@ -3,9 +3,18 @@ import singer from '../models/singer'
 // 增加singer
 const addSinger = async (ctx, next) => {
   const data = ctx.request.body
-  console.log(data, 'dttat');
+  const {singerId} = data
+  let result = null
 
-  const result = await singer.create(data)
+  if (!singerId) {
+    result = await singer.create(data)
+  } else {
+    result = await singer.update(
+      { _id: singerId },
+      data
+  )  
+  }
+
   console.log(result);
   if (result) {
     info(ctx, '1000', '创建成功')
