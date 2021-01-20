@@ -12,7 +12,7 @@ const addSinger = async (ctx, next) => {
     result = await singer.update(
       { _id: singerId },
       data
-  )  
+    )  
   }
 
   console.log(result);
