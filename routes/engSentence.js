@@ -1,6 +1,6 @@
 const router = require('koa-router')();
 
-import engSentence from '../controllers/engSentence'
+import * as engSentence from '../controllers/engSentence'
 
 router.prefix('/engSentence')
 

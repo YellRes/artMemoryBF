@@ -6,4 +6,6 @@ const engSentenceSchema = mongoose.Schema({
   translation: String,
 }, {collection: 'EngSentence'})
 
-export default engSentenceSchema
+const engSentence = mongoose.model('EngSentence', engSentenceSchema)
+
+export default engSentence
