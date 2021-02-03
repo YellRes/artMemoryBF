@@ -46,4 +46,24 @@ export const findAllSentence = async (ctx, next) => {
   next()
 }
 
+export const deleteSentence = async (ctx, next) => {
+
+  const data = ctx.request.body
+  const {sentenceId} = data
+
+  let result = await engSentence.deleteOne({sentenceId})
+
+  if (result) {
+    info(ctx, '1000', '操作成功', {
+      data: result
+    })
+  } else {
+    info(ctx, '1001', '操作失败', {
+      data: []
+    })
+  }
+
+  next()
+}
+
 
