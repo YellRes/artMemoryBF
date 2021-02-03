@@ -51,7 +51,9 @@ export const deleteSentence = async (ctx, next) => {
   const data = ctx.request.body
   const {sentenceId} = data
 
-  let result = await engSentence.deleteOne({sentenceId})
+  let result = await engSentence.deleteOne({
+    _id: sentenceId
+  })
 
   if (result) {
     info(ctx, '1000', '操作成功', {
