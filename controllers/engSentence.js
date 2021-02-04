@@ -5,7 +5,7 @@ const info = (ctx, code, message, body) => {
     header: {code, message},
     body
   }
-}
+} 
 
 export const addSentence = async (ctx, next) => {
   const data = ctx.request.body
