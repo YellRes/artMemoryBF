@@ -4,7 +4,7 @@ const engSentenceSchema = mongoose.Schema({
   sentenceId: String,
   sentence: String,
   translation: String,
-}, {collection: 'EngSentence'})
+}, {collection: 'EngSentence' })
 
 const engSentence = mongoose.model('EngSentence', engSentenceSchema)
 
