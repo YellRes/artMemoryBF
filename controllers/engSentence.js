@@ -56,16 +56,33 @@ export const deleteSentence = async (ctx, next) => {
   })
 
   if (result) {
-    info(ctx, '1000', '操作成功', {
-      data: result
-    })
+    info(ctx, '1000', '操作成功')
   } else {
-    info(ctx, '1001', '操作失败', {
-      data: []
-    })
+    info(ctx, '1001', '操作失败')
   }
 
   next()
+}
+
+export const deleteSentences = async (ctx, next) => {
+
+  const {sentenceArr} = ctx.request.body || {}
+
+  try {
+    await engSentence
+      .deleteMany({
+        _id: {
+          $in: sentenceArr
+        }
+      })
+      
+
+      info(ctx, '1000', '操作成功')
+  } catch (e) {
+    console.log(e);
+    info(ctx, '1001', '操作失败')
+  }
+  
 }
 
 

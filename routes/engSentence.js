@@ -8,5 +8,6 @@ router.post('/addSentence', engSentence.addSentence)
 // router.post('/deleteSentence', sentenceControl.deleteSentence)
 router.post('/findAllSentence', engSentence.findAllSentence)
 router.post('/deleteSentence', engSentence.deleteSentence)
+router.post('/deleteSentences', engSentence.deleteSentences)
 
 export default router
