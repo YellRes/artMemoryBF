@@ -4,7 +4,8 @@ const engSentenceSchema = mongoose.Schema({
   sentenceId: String,
   sentence: String,
   translation: String,
-}, {collection: 'EngSentence' })
+  createTime: Date,
+}, {collection: 'EngSentence'})
 
 const engSentence = mongoose.model('EngSentence', engSentenceSchema)
 

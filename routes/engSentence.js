@@ -9,5 +9,6 @@ router.post('/addSentence', engSentence.addSentence)
 router.post('/findAllSentence', engSentence.findAllSentence)
 router.post('/deleteSentence', engSentence.deleteSentence)
 router.post('/deleteSentences', engSentence.deleteSentences)
+router.post('/findSentenceBySth', engSentence.findSentenceBySth)
 
 export default router

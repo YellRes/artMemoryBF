@@ -46,6 +46,24 @@ export const findAllSentence = async (ctx, next) => {
   next()
 }
 
+export const findSentenceBySth = async (ctx, next) => {
+  const data = ctx.request.body
+  const {startTime, endTime} = data
+
+  try {
+    let data = await engSentence.find(
+      {
+        "createTime": {$gte:new Date(startTime)},
+        "createTime": {$lte:new Date(endTime)}
+      }
+    )
+    info(ctx, '1000', '操作成功', {data})
+  } catch (e) {
+    info(ctx, '1001', '操作失败')
+  }
+  
+}
+
 export const deleteSentence = async (ctx, next) => {
 
   const data = ctx.request.body
@@ -76,8 +94,7 @@ export const deleteSentences = async (ctx, next) => {
         }
       })
       
-
-      info(ctx, '1000', '操作成功')
+    info(ctx, '1000', '操作成功')
   } catch (e) {
     console.log(e);
     info(ctx, '1001', '操作失败')
