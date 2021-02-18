@@ -59,7 +59,7 @@ export const findSentenceBySth = async (ctx, next) => {
     )
     info(ctx, '1000', '操作成功', {data})
   } catch (e) {
-    info(ctx, '1001', '操作失败')
+    info(ctx, '1001', '操作失败', {data: []})
   }
   
 }
