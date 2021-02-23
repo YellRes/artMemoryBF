@@ -53,8 +53,7 @@ export const findSentenceBySth = async (ctx, next) => {
   try {
     let data = await engSentence.find(
       {
-        "createTime": {$gte:new Date(startTime)},
-        "createTime": {$lte:new Date(endTime)}
+        "createTime": {$gte:new Date(startTime), $lte:new Date(endTime)},
       }
     )
     info(ctx, '1000', '操作成功', {data})
