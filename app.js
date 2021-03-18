@@ -5,6 +5,9 @@ import singer from './routes/singer'
 import song from './routes/song'
 import sentence from './routes/sentence'
 import engSentence from './routes/engSentence'
+import blogTag from './routes/blog/blogTag'
+import blogChildTag from './routes/blog/blogChildTag'
+import blogArticle from './routes/blog/blogArticle'
 
 const app = new Koa()
 
@@ -25,6 +28,9 @@ app.use(singer.routes())
 app.use(song.routes())
 app.use(sentence.routes())
 app.use(engSentence.routes())
+app.use(blogTag.routes())
+app.use(blogChildTag.routes())
+app.use(blogArticle.routes())
 
 app.on('error', (err, ctx) => {
   console.log('server error', err)
