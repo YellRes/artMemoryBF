@@ -21,7 +21,7 @@ app.use(async (ctx, next)=> {
   } else {
     await next();
   }
-});
+}); 
 
 app.use(koaBody({multipart: true}))
 app.use(singer.routes())
