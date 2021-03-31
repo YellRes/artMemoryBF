@@ -55,7 +55,7 @@ const deleteBlogArticle = async (ctx, next) => {
 const findBlogArticle = async (ctx, next) => {
 
   const {_id, content} = ctx.request.body
-
+  console.log('findBlogArticle');
   try {
     let data
     if (!_id && !content) {
